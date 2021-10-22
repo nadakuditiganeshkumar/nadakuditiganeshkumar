@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="title" content="project">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="language" content="English">
+  <meta name="author" content="GaneshKumar">
+    <title>Registraion form</title>
+    <link href="{% static 'images/favicon.ico' %}" rel="shortcut icon" type="image/x-icon">
+
+      <!-- bootstrap file -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!-- bootstrap file-->
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+     <style>
+        /* Modify the background color */
+
+        .navbar-custom {
+            background-color: lightblue;
+        }
+        /* Modify brand and text color */
+
+        .navbar-custom .navbar-brand,
+        .navbar-custom .navbar-text {
+            color:black;
+        }
+        #frame {
+            display:inline-block;
+            background-color:lightblue;
+            text-align:right;
+            width: 350px;
+            padding: 20px;
+            border: 1px solid #270644;
+        }
+        .navabar-text-right{
+            text-align:right;
+        }
+    </style>
+
+</head>
+<body>
+<nav class="navbar  navbar-custom navbar-static-top"  >
+    <div class="container">
+        <ul class="nav navbar-nav">
+            <li><a class="navbar-brand" href="{% url 'main' %}">Home</a> </li>
+            <li><a class="navbar-link"  href="{% url 'admin:index' %}">Admin</a></li>
+
+            {% if user.is_authenticated %}
+            <li><a class="navbar-link"  href="{% url 'adduser' %}">Adduser Data</a></li>
+            {% endif %}
+
+            {% if user.is_authenticated %}
+            <li><a class="navabar-link" href="{% url 'user_logout' %}">Logout</a> </li>
+            <li><a class="navbar-text-right"  href="{% url 'main' %}">{{user.username}}</a></li>
+
+            {% else %}
+             <li><a class="navbar-link"  href="{% url 'register' %}">Register</a></li>
+            <li><a class="navbar-link" href="{% url 'login' %}">Login</a> </li>
+
+            {% endif %}
+
+
+
+        </ul>
+    </div>
+</nav>
+
+
+<div class="container">
+{% block body_block %}
+
+{% endblock %}
+</div>
+
+</body>
+</html>

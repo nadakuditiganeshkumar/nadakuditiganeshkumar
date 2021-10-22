@@ -1,0 +1,19 @@
+{% load static %}
+{% block body_block %}
+{% include 'index.html' %}
+<h1 style="text-align:center;">This a Filling form for employee</h1>
+
+    <div class="container">
+    <form method="POST" id="frame">
+        <fieldset>
+        <legend>Form</legend>
+         {% csrf_token %}
+
+         {{ form.as_p }}
+
+        <input type="submit"  value="SUBMIT">
+        </fieldset>
+    </form>
+    </div>
+
+{% endblock %}

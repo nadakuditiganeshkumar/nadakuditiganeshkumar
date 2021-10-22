@@ -1,0 +1,62 @@
+{% extends 'index.html' %}
+
+{% block body_block %}
+
+<style>
+.center {
+  margin: auto;
+  width: 40%;
+  border: 2px solid grey;
+  padding: 10px;
+  border-radius: 20px;
+  background-color:lightblue;
+}
+</style>
+</head>
+<body>
+<h2 style="text-align:center;">Update Employee Details</h2><br>
+<div class="container">
+    <div class="center">
+        <form method="post" name="frm"  style="text-align:center">
+            <p>
+                <label >Employee Name:</label>
+                <input type="text"   maxlength="50" value="{{i.employee_name}}"  required id="employee_name" name="employee_name">
+            </p>
+            <p>
+                <label>DOB:</label>
+                <input type="date" name="birth" maxlength="50" value="{{i.dob}}" required id="id_dob">
+            </p>
+            <p>
+                <label >Joining Date:</label>
+                <input type="date"   value="{{i.joining_date}}" required id="id_joining_date" name="joining_date">
+            </p>
+            <p>
+                <label >Manager:</label>
+                <input type="text" name="manager" step="any" value="{{i.manager}}" required id="id_manager" >
+            </p>
+<!--            <p>-->
+<!--                <label >Weight:</label>-->
+<!--                <input type="number" name="weight" step="any" value="{{i.weight}}" required id="id_weight" name="weight">-->
+<!--            </p>-->
+            <p>
+                <label >Salary:</label>
+                <input type="number" name="salary" step="any" value="{{i.salary}}" required id="id_salary" >
+            </p>
+<!--            <p>-->
+<!--                <label >Department:</label>-->
+<!--                <input type="text" name="department" step="any" value="{{i.department}}" required id="id_department" name="department">-->
+<!--            </p>-->
+            <p>
+                <label >City:</label>
+                <input type="text" name="city" step="any" value="{{i.city}}" required id="id_city" name="city">
+            </p>
+
+
+    <input type="submit" value="Save" name="update">
+
+    {% csrf_token %}
+        </form>
+    </div>
+</div>
+
+{% endblock %}

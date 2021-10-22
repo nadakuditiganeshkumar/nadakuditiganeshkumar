@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% extends "index.html" %}
+{% load static %}
+{% block body_block %}
+<div style="background-color:lightblue" class="jumbotron">
+  <div class="container">
+  {% if  registered %}
+  <h1 style="color:red">Thank You For Your Registraing!</h1>
+  {% else %}
+  <h1>Register Here!</h1>
+  <h2>Fill out the form:</h2>
+  <form enctype="multipart/form-data" method="POST" >
+    {% csrf_token %}
+    {{user_form.as_p}}
+    {{profile_form.as_p}}
+    <input type="submit"  value="Register">
+  </form>
+  {% endif %}
+  </div>
+</div>
+
+{% endblock %}
